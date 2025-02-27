@@ -1465,13 +1465,13 @@ class PACEBMS232:
 
         total_energy_charged = total_power * self.data_refresh_interval / 3600 * 1000 if total_power >= 0 else 0
         total_energy_charged = round(total_energy_charged, 5)
-        self.ha_comm.publish_sensor_state(total_energy_charged, 'Wh', "total_energy_charged")
-        self.ha_comm.publish_sensor_discovery("total_energy_charged", "Wh", icons['total_energy_charged'], deviceclasses['total_energy_charged'], stateclasses['total_energy_charged'])
+        self.ha_comm.publish_sensor_state(total_energy_charged, 'kWh', "total_energy_charged")
+        self.ha_comm.publish_sensor_discovery("total_energy_charged", "kWh", icons['total_energy_charged'], deviceclasses['total_energy_charged'], stateclasses['total_energy_charged'])
 
         total_energy_discharged = abs(total_power) * self.data_refresh_interval / 3600 * 1000 if total_power < 0 else 0
         total_energy_discharged = round(total_energy_discharged, 5)
-        self.ha_comm.publish_sensor_state(total_energy_discharged, 'Wh', "total_energy_discharged")
-        self.ha_comm.publish_sensor_discovery("total_energy_discharged", "Wh", icons['total_energy_discharged'], deviceclasses['total_energy_discharged'], stateclasses['total_energy_discharged'])
+        self.ha_comm.publish_sensor_state(total_energy_discharged, 'kWh', "total_energy_discharged")
+        self.ha_comm.publish_sensor_discovery("total_energy_discharged", "kWh", icons['total_energy_discharged'], deviceclasses['total_energy_discharged'], stateclasses['total_energy_discharged'])
 
         # Extract all cell_voltages lists and flatten them into a single list
         all_cell_voltages = [voltage for d in analog_data for voltage in d.get('cell_voltages', [])]
