@@ -1,6 +1,9 @@
 # Changelog
 
+---------------
+## 1.9.1
 
+- Fix unit for change & dischange for Pace BMS
 
 ---------------
 
